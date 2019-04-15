@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    var hata = ViewBag.HataBaslik;
+}
+@using (Html.BeginForm("Login", "User", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="jumbotron m-auto">
+        <h1 class="text-center"><b>Üye Girişi</b></h1>
+        <hr />
+        <div class="form-row">
+            <div class="form-group col-md-6 offset-md-3 text-center">
+                <label for="NickName " class="text-center">Kullanıcı Adı</label>
+                <input type="text" class="form-control" name="NickName" placeholder="Kullanıcı Adı Giriniz">
+            </div>
+            <div class="form-group col-md-6 offset-md-3 text-center">
+                <label for="Password" class="text-center">Şifre</label>
+                <input type="password" class="form-control" name="Password" placeholder="Şifre Giriniz">
+            </div>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary btn-block col-md-6 offset-md-3 ">Giriş</button>
+    </div>
+
+    if (hata != null)
+    {
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#exampleModal').modal('show');
+            });
+        </script>
+        <div class="modal fade" tabindex="-1" role="dialog" id="exampleModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-danger"><b>@ViewBag.HataBaslik</b></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p ><b>@Html.Raw(ViewBag.HataAciklama)</b></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+

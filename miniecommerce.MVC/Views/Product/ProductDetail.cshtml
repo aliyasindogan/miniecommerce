@@ -1,0 +1,51 @@
+﻿@model miniecommerce.ENTITIES.Concrete.ViewModel.ProductBasketViewModel
+@{
+    ViewBag.Title = "Ürün Detayı | Mini E-Ticaret";
+}
+<style>
+    .font-size-16 {
+        font-size: 16px !important;
+    }
+</style>
+<h3 class="text-primary"><i class="fa fa-eye"></i>&nbsp;Ürün Detayı</h3>
+<hr />
+@using (Html.BeginForm("BasketAdd", "Basket", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" name="ProductID" value="@Model.ProductID" />
+    <input type="hidden" name="UserID" value="@Model.UserID" />
+    <div class="row">
+        <div class="col-sm-12 mt-3">
+            <div class="card mb-3">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src='@Model.ProductImageUrl' class="card-img-top" alt='@Model.ProductName'>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary font-weight-bold"> @Model.ProductCode.ToUpper() / @Model.ProductName.ToUpper()</h5>
+                            <hr />
+                            <h5>Ürün Özellikleri</h5>
+                            <hr />
+                            <p class="card-text">@Model.ProductDescripton</p>
+                            <div class="form-group row">
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control text-primary font-weight-bold font-size-16 text-center " id="ProductPrice" name="ProductPrice" placeholder="Adet Giriniz" value='@String.Format("{0:C}", Model.ProductPrice.ToString()) TL' readonly>
+                                </div>
+                                <div class="col-sm-9">
+                                    <input type="number" class="form-control" id="Quantity" name="Quantity" placeholder="Adet Giriniz">
+                                </div>
+                            </div>
+                            <br />
+                            <button type="submit" class="btn btn-outline-primary"><i class="fa fa-shopping-basket"></i>&nbsp;Sepete Ekle</button>
+                            <a href="/Home/ProductList" class="btn btn-outline-primary"><i class="fas fa-list"></i>&nbsp;Ürün Listesine Geri Dön</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+

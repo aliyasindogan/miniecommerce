@@ -1,0 +1,21 @@
+﻿@model miniecommerce.ENTITIES.Concrete.Basket
+
+<a class="btn btn-outline-secondary" href="/Basket/BasketList">
+    <i class="fa fa-shopping-basket"></i>&nbsp;
+    @{
+
+        if (Session["NameSurname"] == null)
+        {
+            @("Misafir");
+            <span class="badge badge-secondary">
+                <span class='badge badge-secondary'>@Model.Quantity</span>
+            </span>
+        }
+        else
+        {
+            @Session["NameSurname"].ToString();
+            <span class='badge badge-secondary'>@Model.Quantity</span>
+        }
+    }
+</a> &nbsp;
+

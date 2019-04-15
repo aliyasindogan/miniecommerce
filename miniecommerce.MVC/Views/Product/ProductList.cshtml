@@ -1,0 +1,36 @@
+﻿@model IEnumerable<miniecommerce.ENTITIES.Concrete.Product>
+@{
+    ViewBag.Title = "Mini E-Ticaret";
+}
+<script type="text/javascript">
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    });
+</script>
+<h3 class="text-primary"><i class="fa fa-list"></i>&nbsp;Ürün Listesi</h3>
+<hr />
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-3 mt-3">
+            <div class="card">
+                <img src='@item.ProductImageUrl' class="card-img-top" alt='@item.ProductName'>
+                <div class="card-body">
+                    <h5 class="card-title">@item.ProductCode</h5>
+                    <p class="card-text text-truncate" data-toggle="popover" data-content='@item.ProductName' data-trigger="hover">@item.ProductName</p>
+                    <p class="card-text font-weight-bold text-primary">@String.Format("{0:C}", item.ProductPrice.ToString()) TL</p>
+                    <div class="btn-group m-auto">
+                        <a href="/Product/ProductDetail/@item.Id" class="btn btn-outline-primary ">Sepete Ekle</a>
+                        <a href="/Product/ProductDetail/@item.Id" class="btn btn-outline-primary ">Görüntüle</a>
+                    </div>
+               
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
+<br />
+<br />
+<br />
+

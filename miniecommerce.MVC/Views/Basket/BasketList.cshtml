@@ -1,0 +1,83 @@
+﻿@model IEnumerable<miniecommerce.ENTITIES.Concrete.ViewModel.BasketViewModel>
+@{
+    ViewBag.Title = "Sepet Listesi - Mini E-Ticaret";
+}
+
+<h2>Sepet Liste</h2>
+<div class="row">
+    <div class="col-lg-9">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">ÜRÜN ADI</th>
+                    <th scope="col">FİYAT</th>
+                    <th scope="col">MİKTAR</th>
+                    <th scope="col">TOPLAM</th>
+                    <th scope="col">SİPARİŞMİ?</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><img src="@item.ProductImageUrl" alt="@item.ProductName" width="100" class="img-fluid" /></td>
+                        <td>@item.Id</td>
+                        <td>@item.ProductName</td>
+                        <td>@item.ProductPrice</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.ProductPriceTotal</td>
+                        <td>
+                            @if (item.IsSales == true)
+                            {
+                                <span class="badge badge-success">@("SATILDI")</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-danger">@("SİPARİŞ")</span>
+                            }
+
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-3">
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active text-center">
+                <div class="text-center">
+                    <h5 class="mb-1"><b>SİPARİŞ ÖZETİ</b></h5>
+                </div>
+                <small class="text-center">@DateTime.Now</small>
+            </a>
+             
+                <a href="#" class="list-group-item list-group-item-action text-right">
+                    <div class="text-right">
+                        <h5 class="mb-1"><b>Sipariş Toplamı</b></h5>
+                    </div>
+                    <p class="mb-1"><b>@ViewBag.SiparisToplami</b></p>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action text-right">
+                    <div class="text-right">
+                        <h5 class="mb-1"><b>KDV Tutarı (%18)</b></h5>
+                    </div>
+                    <p class="mb-1"><b>@ViewBag.Kdv</b></p>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action text-right">
+                    <div class="text-right">
+                        <h5 class="mb-1"><b>Ödenecek Tutar</b></h5>
+                    </div>
+                    <p class="mb-1"><b>@ViewBag.GenelToplam</b></p>
+                </a>
+            
+                <a href="/Basket/Payment" class="list-group-item list-group-item-action text-center bg-warning">
+                    <div class="text-center">
+                        <h5 class="mb-1"><b class="text-light">ÖDEME YAP</b></h5>
+                    </div>
+                </a>
+            </div>
+    </div>
+</div>

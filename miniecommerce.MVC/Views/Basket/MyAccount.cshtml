@@ -1,0 +1,42 @@
+﻿@model IEnumerable<miniecommerce.ENTITIES.Concrete.ViewModel.BasketViewModel>
+@{
+    ViewBag.Title = "Hesabım - Mini E-Ticaret";
+}
+
+<h2>Hesabım</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">RESİM</th>
+            <th scope="col">ÜRÜN ADI</th>
+            <th scope="col">FİYAT</th>
+            <th scope="col">MİKTAR</th>
+            <th scope="col">TOPLAM</th>
+            <th scope="col">SİPARİŞMİ?</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Id</td>
+            <td><img src="@item.ProductImageUrl" alt="@item.ProductName" width="100" class="img-fluid" /></td>
+            <td>@item.ProductName</td>
+            <td>@item.ProductPrice</td>
+            <td>@item.Quantity</td>
+            <td>@item.ProductPriceTotal</td>
+            <td>
+                @if (item.IsSales == true)
+                {
+                    <span class="badge badge-success">@("SATILDI")</span>
+                }
+                else
+                {
+                    <span class="badge badge-danger">@("SİPARİŞ")</span>
+                }
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

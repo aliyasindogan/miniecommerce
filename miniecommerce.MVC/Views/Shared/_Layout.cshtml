@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mini E-Ticaret </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="shortcut icon" href="~/images/basket.png" type="image/png" />
+
+</head>
+<body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm fixed-top">
+        <h5 class="my-0 mr-md-auto font-weight-normal font-weight-bold"><i class="fa fa-globe"></i>&nbsp;Mini E-Ticaret </h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" href="/Home/Index">AnaSayfa</a>
+            <a class="p-2 text-dark" href="/Product/ProductList">Ürünler</a>
+            <a class="p-2 text-dark" href="/Home/Proje">Proje</a>
+            <a class="p-2 text-dark" href="/Home/Iletisim">İletişim</a>
+            @if (Session["NameSurname"] != null)
+            {
+                <a class="p-2 text-dark" href="/Basket/MyAccount/">Hesabım</a>
+            }
+        </nav>
+
+        @Html.Action("BasketPartialView", "Partials")
+
+        @if (Session["NameSurname"] == null)
+        {
+            <a class="btn btn-outline-primary" href="/User/Login"><i class="fa fa-user"></i>&nbsp;Üye Giriş</a>@Html.Raw("&nbsp;")
+            <a class="btn btn-outline-danger" href="/User/SignUp"><i class="fa fa-user-plus"></i>&nbsp;Üye Ol</a>
+        }
+        @if (Session["NameSurname"] != null)
+        {
+            <a class="btn btn-outline-primary" href="/User/SignOut"><i class="fas fa-sign-out-alt"></i>&nbsp;Oturumu Kapat</a>@Html.Raw("&nbsp;")
+        }
+    </div>
+    <br />
+    <br />
+    <br />
+
+    <div class="container body-content mt-4">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Ali Yasin DOĞAN | .Net Developer</p>
+        </footer>
+    </div>
+
+
+</body>
+</html>
