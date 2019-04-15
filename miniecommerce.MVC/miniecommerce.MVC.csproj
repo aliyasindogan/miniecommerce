@@ -125,6 +125,7 @@
     <Content Include="images\slider\silder-3.png" />
     <Content Include="images\slider\silder-1.png" />
     <Content Include="images\slider\silder-2.png" />
+    <Content Include="miniecommerceDB.sql" />
     <Content Include="README.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
