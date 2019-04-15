@@ -1,15 +1,15 @@
 Mini E-Ticaret (mini ecommerce)
 
-Proje Hakkında
-- Veri tabanı olarak MSSQL kullanıldı.
-- İlişkisel veri tabanı diyagramı oluşturuldu.
-- SQL işlemlerinde Entity Framework ORM aracı kullanıldı.
-- Bootstrap responsive bir tasarım ile Giriş, Ürün Liste, Ürün Detay,Sepet ve Satış Raporu (Hesabım) sayfaları oluşturuldu.
-- ASP.NET MVC CodeFirst kullanarak geliştirme yapıldı.
-- Projeyi geliştirmeye başlamadan önce, oluşturulacak sitenin gelecekte mobil uygulamasının da geliştirileceğini dikkate alınarak Kurumsal Katmanlı Mimari ile Generic Repository Kullanıldı.
+Proje HakkÄ±nda
+- Veri tabanÄ± olarak MSSQL kullanÄ±ldÄ±.
+- Ä°liÅŸkisel veri tabanÄ± diyagramÄ± oluÅŸturuldu.
+- SQL iÅŸlemlerinde Entity Framework ORM aracÄ± kullanÄ±ldÄ±.
+- Bootstrap responsive bir tasarÄ±m ile GiriÅŸ, ÃœrÃ¼n Liste, ÃœrÃ¼n Detay,Sepet ve SatÄ±ÅŸ Raporu (HesabÄ±m) sayfalarÄ± oluÅŸturuldu.
+- ASP.NET MVC CodeFirst kullanarak geliÅŸtirme yapÄ±ldÄ±.
+- Projeyi geliÅŸtirmeye baÅŸlamadan Ã¶nce, oluÅŸturulacak sitenin gelecekte mobil uygulamasÄ±nÄ±n da geliÅŸtirileceÄŸini dikkate alÄ±narak Kurumsal KatmanlÄ± Mimari ile Generic Repository KullanÄ±ldÄ±.
 
-Kullanılan Teknoloji & Mimari
-- Kurumsal Katmanlı Mimari
+KullanÄ±lan Teknoloji & Mimari
+- Kurumsal KatmanlÄ± Mimari
 - Generic Respository
 - Dependency Injection
 - Asp.Net MVC CodeFirst
@@ -19,10 +19,12 @@ Kullanılan Teknoloji & Mimari
 - Bootstrap Css Framework 4.3.1
 - FontAwesome Icon Framework 4.7.0
 
-Proje Katmaları
+Proje KatmalarÄ±
     miniecommerce (Solution)
-        miniecommerce.BLL (İş Mantığı Katmanı)
-        miniecommerce.DAL (Veri Erişim Katmanı)
-        miniecommerce.ENTITIES (Databasedeki Tablolar (Varlıklar))
+        miniecommerce.BLL (Ä°ÅŸ MantÄ±ÄŸÄ± KatmanÄ±)
+        miniecommerce.DAL (Veri EriÅŸim KatmanÄ±)
+        miniecommerce.ENTITIES (Databasedeki Tablolar (VarlÄ±klar))
         miniecommerce.MVC (Web Sitesi)
+        
+   Web Site GÃ¶rÃ¼nÃ¼nÃ¼mÃ¼:     miniecommerce.aliyasindogan.com
 
